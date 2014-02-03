@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="PHP Image Util Documentation" version="2.2.0&#10;">
+  <partials/>
+  <file path="Image.php" generated-path="Image.html" hash="c7e4b19f1b41083aab63a3dd72a51cf6" package="DominionEnterprises">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+    </docblock>
+    <class final="true" abstract="false" namespace="DominionEnterprises\Util" line="5" package="DominionEnterprises">
+      <extends/>
+      <name>Image</name>
+      <full_name>\DominionEnterprises\Util\Image</full_name>
+      <docblock line="5">
+        <description></description>
+        <long-description></long-description>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="DominionEnterprises\Util" line="10" package="DominionEnterprises">
+        <name>resize</name>
+        <full_name>\DominionEnterprises\Util\Image::resize()</full_name>
+        <docblock line="10">
+          <description>Calls @see resizeMulti() with $boxWidth and $boxHeight as a single element in $boxSizes</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$source</name>
+          <default></default>
+          <type>\Imagick</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$boxWidth</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$boxHeight</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="DominionEnterprises\Util" line="40" package="DominionEnterprises">
+        <name>resizeMulti</name>
+        <full_name>\DominionEnterprises\Util\Image::resizeMulti()</full_name>
+        <docblock line="40">
+          <description>resizes images into a bounding box. Maintains aspect ratio, extra space filled with given color.</description>
+          <long-description></long-description>
+          <tag name="param" line="40" description="&lt;p&gt;source image to resize. Will not modify&lt;/p&gt;" type="\Imagick" variable="$source">
+            <type link="Imagick.html">\Imagick</type>
+          </tag>
+          <tag name="param" line="40" description="&lt;p&gt;resulting bounding boxes. Each value should be an array with width and height, both integers&lt;/p&gt;" type="array" variable="$boxSizes">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="40" description="&lt;p&gt;options&lt;/p&gt;&#10;&lt;pre&gt;&lt;code&gt;string color (default white) background color. Any supported from&#10;    http://www.imagemagick.org/script/color.php#color_names&#10;bool upsize (default false) true to upsize the original image or false to upsize just the bounding box&#10;int maxWidth (default 10000) max width allowed for $boxWidth&#10;int maxHeight (default 10000) max height allowed for $boxHeight&lt;/code&gt;&lt;/pre&gt;" type="array" variable="$options">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="40" description="array of \Imagick objects resized. Keys maintained from $boxSizes" type="array">
+            <type>array</type>
+          </tag>
+          <tag name="throws" line="40" description="if $options[&quot;color&quot;] was not a string" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="40" description="if $options[&quot;upsize&quot;] was not a bool" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="40" description="if $options[&quot;maxWidth&quot;] was not an int" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="40" description="if $options[&quot;maxHeight&quot;] was not an int" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="40" description="if a width in a $boxSizes value was not an int" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="40" description="if a height in a $boxSizes value was not an int" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="40" description="if a $boxSizes width was not between 0 and $options[&quot;maxWidth&quot;]" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="40" description="if a $boxSizes height was not between 0 and $options[&quot;maxHeight&quot;]" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="40" description="" type="\Exception">
+            <type link="Exception.html">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$source</name>
+          <default></default>
+          <type>\Imagick</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$boxSizes</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="DominionEnterprises\Util" line="229" package="DominionEnterprises">
+        <name>write</name>
+        <full_name>\DominionEnterprises\Util\Image::write()</full_name>
+        <docblock line="229">
+          <description>write $source to $destPath with $options applied</description>
+          <long-description></long-description>
+          <tag name="param" line="229" description="&lt;p&gt;source image. Will not modify&lt;/p&gt;" type="\Imagick" variable="$source">
+            <type link="Imagick.html">\Imagick</type>
+          </tag>
+          <tag name="param" line="229" description="&lt;p&gt;destination image path&lt;/p&gt;" type="string" variable="$destPath">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="229" description="&lt;p&gt;options&lt;/p&gt;&#10;&lt;pre&gt;&lt;code&gt;string format (default jpeg) format. Any supported from http://www.imagemagick.org/script/formats.php#supported&#10;int directoryMode (default 0777) chmod mode for any parent directories created&#10;int fileMode (default 0777) chmod mode for the resized image file&#10;bool stripHeaders (default true) whether to strip headers (exif, etc). Is only reflected in $destPath, not returned clone&lt;/code&gt;&lt;/pre&gt;" type="array" variable="$options">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="229" description="" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="throws" line="229" description="if $destPath was not a string" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="229" description="if $options[&quot;format&quot;] was not a string" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="229" description="if $options[&quot;directoryMode&quot;] was not an int" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="229" description="if $options[&quot;fileMode&quot;] was not an int" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="229" description="if $options[&quot;stripHeaders&quot;] was not a bool" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="229" description="" type="\Exception">
+            <type link="Exception.html">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$source</name>
+          <default></default>
+          <type>\Imagick</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$destPath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="DominionEnterprises\Util" line="310" package="DominionEnterprises">
+        <name>stripHeaders</name>
+        <full_name>\DominionEnterprises\Util\Image::stripHeaders()</full_name>
+        <docblock line="310">
+          <description>Strips the headers (exif, etc) from an image at the given path.</description>
+          <long-description></long-description>
+          <tag name="param" line="310" description="&lt;p&gt;The image path.&lt;/p&gt;" type="string" variable="$path">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="310" description="" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="throws" line="310" description="if $path is not a string" type="\InvalidArgumentException">
+            <type link="InvalidArgumentException.html">\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="310" description="if there is a failure stripping the headers" type="\Exception">
+            <type link="Exception.html">\Exception</type>
+          </tag>
+          <tag name="throws" line="310" description="if there is a failure writing the image back to path" type="\Exception">
+            <type link="Exception.html">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$path</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="5" code="PPC:ERR-50005">No summary for class \DominionEnterprises\Util\Image</error>
+      <error line="10" code="PPC:ERR-50015">Argument $boxWidth is missing from the Docblock of resize()</error>
+      <error line="10" code="PPC:ERR-50015">Argument $boxHeight is missing from the Docblock of resize()</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <package name="DominionEnterprises" full_name="DominionEnterprises"/>
+  <namespace name="DominionEnterprises" full_name="DominionEnterprises">
+    <namespace name="Util" full_name="DominionEnterprises\Util"/>
+  </namespace>
+  <deprecated count="0"/>
+</project>
