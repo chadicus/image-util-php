@@ -214,6 +214,44 @@ final class ImageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Upsize ratio 2.0 to 4.0
+     *
+     * @test
+     * @covers ::resize
+     * @covers ::resizeMulti
+     */
+    public function resizeUpsizeBestfitToMoreHorizontalAspectWithGrow()
+    {
+        $source = new \Imagick('pattern:gray0');
+        $source->scaleImage(480, 640);
+
+        $imagick = Image::resize($source, 1024, 768, ['upsize' => true, 'bestfit' => true]);
+
+        $this->assertSame(480, $source->getImageWidth());
+        $this->assertSame(640, $source->getImageHeight());
+
+        $this->assertSame(1024, $imagick->getImageWidth());
+        $this->assertSame(768, $imagick->getImageHeight());
+
+        $whiteBarLeft = $imagick->getImagePixelColor(800, 49)->getHsl();
+        $whiteBarRight = $imagick->getImagePixelColor(804, 49)->getHsl();
+
+        $this->assertGreaterThan(0.9, $whiteBarLeft['luminosity']);
+        $this->assertGreaterThan(0.9, $whiteBarRight['luminosity']);
+
+
+        $imageTop = $imagick->getImagePixelColor(249, 0)->getHsl();
+        $imageBottom = $imagick->getImagePixelColor(249, 99)->getHsl();
+        $imageLeft = $imagick->getImagePixelColor(100, 49)->getHsl();
+        $imageRight = $imagick->getImagePixelColor(299, 49)->getHsl();
+
+        $this->assertLessThan(0.1, $imageLeft['luminosity']);
+        $this->assertLessThan(0.1, $imageRight['luminosity']);
+        $this->assertLessThan(0.1, $imageTop['luminosity']);
+        $this->assertLessThan(0.1, $imageBottom['luminosity']);
+    }
+
+    /**
      * @test
      * @covers ::resize
      * @covers ::resizeMulti
@@ -307,6 +345,18 @@ final class ImageTest extends \PHPUnit_Framework_TestCase
     public function resize_nonBoolUpsize()
     {
         Image::resize(new \Imagick(), 10, 10, ['upsize' => 'not bool']);
+    }
+
+    /**
+     * @test
+     * @covers ::resize
+     * @covers ::resizeMulti
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage $options["bestfit"] was not a bool
+     */
+    public function resizeNonBoolBestFit()
+    {
+        Image::resize(new \Imagick(), 10, 10, ['bestfit' => 'not bool']);
     }
 
     /**
