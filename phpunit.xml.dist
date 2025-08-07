@@ -1,4 +1,8 @@
 <phpunit colors="true" forceCoversAnnotation="true">
+    <php>
+        <ini name="error_reporting" value="E_ALL"/>
+        <ini name="display_errors" value="On"/>
+    </php>
     <testsuites>
         <testsuite name="TraderInteractive Library Test Suite">
             <directory suffix="Test.php">tests</directory>
